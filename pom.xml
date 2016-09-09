@@ -89,7 +89,7 @@
 					<generatePackage>org.glytoucan.admin.model</generatePackage>
 					<schemas>
 						<schema>
-							<url>http://172.20.0.1:8031/ws/model.wsdl</url>
+							<url>http://test.api.glytoucan.org/admin/ws/model.wsdl</url>
 						</schema>
 					</schemas>
 					<!-- <generateDirectory>${project.build.directory}/generated-source/java</generateDirectory> -->
@@ -126,6 +126,10 @@
 
 	<repositories>
 		<repository>
+			<id>bintray</id>
+			<url>http://jcenter.bintray.com</url>
+		</repository>
+		<repository>
 			<id>spring-releases</id>
 			<url>http://repo.spring.io/libs-release</url>
 		</repository>
@@ -151,7 +155,6 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<!-- Import dependency management from Spring Boot -->
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-dependencies</artifactId>
 				<version>1.3.3.RELEASE</version>

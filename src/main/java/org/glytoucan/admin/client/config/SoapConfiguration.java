@@ -9,7 +9,7 @@ import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 @Configuration
 public class SoapConfiguration {
 //  http://172.20.0.1:8031/ws/model.wsdl
-  @Value("${soap.api.glycosequence.uri:http://172.20.0.1:8031/ws}")
+  @Value("${soap.api.glycosequence.uri:http://test.api.glytoucan.org/admin/ws}")
   String defaultUri;
   
   @Bean
