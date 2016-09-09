@@ -150,6 +150,10 @@
 			<name>Internal Release Snapshots</name>
 			<url>http://nexus.glycoinfo.org/content/repositories/snapshots/</url>
 		</snapshotRepository>
+		<site>
+			<id>glycoinfo-projects</id>
+			<url>dav:http://nexus.glycoinfo.org/content/sites/project/glytoucan/api/</url>
+		</site>
 	</distributionManagement>
 
 	<dependencyManagement>
