@@ -4,9 +4,11 @@ import org.glytoucan.admin.client.UserClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
 @Configuration
+@Import(SoapConfiguration.class)
 public class UserClientConfig {
 
   @Autowired

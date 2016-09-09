@@ -84,7 +84,7 @@ public class UserClientTest {
     auth.setId("1");
     auth.setApiKey(token);
     request.setAuthentication(auth);
-    request.setPrimaryId("glytoucan@gmail.com");
+    request.setContributorId("1");
     request.setApiKey(token);
     UserKeyCheckResponse result = userClient.userKeyCheckRequest(request);
 

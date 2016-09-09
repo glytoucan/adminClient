@@ -43,7 +43,7 @@ public class UserClient extends WebServiceGatewaySupport {
     Assert.notNull(request.getAuthentication());
     Assert.notNull(request.getAuthentication().getId());
     Assert.notNull(request.getAuthentication().getApiKey());
-    Assert.notNull(request.getPrimaryId());
+    Assert.notNull(request.getContributorId());
     Assert.notNull(request.getApiKey());
 
     return (UserKeyCheckResponse) getWebServiceTemplate().marshalSendAndReceive(request);
