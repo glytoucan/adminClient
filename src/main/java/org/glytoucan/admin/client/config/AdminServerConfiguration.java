@@ -7,18 +7,18 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
 @Configuration
-public class SoapConfiguration {
+public class AdminServerConfiguration {
 //  http://172.20.0.1:8031/ws/model.wsdl
   @Value("${admin.uri:http://test.api.glytoucan.org/admin/ws}")
-  String defaultUri;
+  String adminUri;
   
   @Bean
-  String defaultUri() {
-    return defaultUri;
+  String adminUri() {
+    return adminUri;
   }
   
-	@Bean
-	public Jaxb2Marshaller marshaller() throws Exception {
+  @Bean(name="adminMarshaller")
+	public Jaxb2Marshaller adminMarshaller() throws Exception {
 		Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
 		marshaller.setContextPath("org.glytoucan.admin.model");
 //		marshaller.setPackagesToScan(ClassUtils.getPackageName(LogInsertRequest.class));

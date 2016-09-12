@@ -32,6 +32,7 @@ public class UserClient extends WebServiceGatewaySupport {
 	}
 
   public UserDetailsResponse userDetailsRequest(UserDetailsRequest request) {
+    logger.debug("client accessiong default URI:>" + getDefaultUri() + "<");
     Assert.notNull(request);
     Assert.notNull(request.getAuthentication());
     Assert.notNull(request.getPrimaryId());
@@ -39,6 +40,7 @@ public class UserClient extends WebServiceGatewaySupport {
   }
  
   public UserKeyCheckResponse userKeyCheckRequest(UserKeyCheckRequest request) {
+    logger.debug("client accessiong default URI:>" + getDefaultUri() + "<");
     Assert.notNull(request);
     Assert.notNull(request.getAuthentication());
     Assert.notNull(request.getAuthentication().getId());
