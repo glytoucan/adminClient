@@ -12,6 +12,7 @@ import org.apache.commons.logging.LogFactory;
 import org.glytoucan.admin.client.Application;
 import org.glytoucan.admin.client.UserClient;
 import org.glytoucan.admin.model.Authentication;
+import org.glytoucan.admin.model.User;
 import org.glytoucan.admin.model.UserDetailsRequest;
 import org.glytoucan.admin.model.UserDetailsResponse;
 import org.glytoucan.admin.model.UserGenerateKeyRequest;
@@ -20,6 +21,8 @@ import org.glytoucan.admin.model.UserKeyCheckRequest;
 import org.glytoucan.admin.model.UserKeyCheckResponse;
 import org.glytoucan.admin.model.UserKeyRequest;
 import org.glytoucan.admin.model.UserKeyResponse;
+import org.glytoucan.admin.model.UserRegisterRequest;
+import org.glytoucan.admin.model.UserRegisterResponse;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -115,4 +118,32 @@ public class UserClientTest {
     Assert.assertNotNull(result.getKey());
   }
 
+  @Test
+  public void testRegisterUser() {
+    UserRegisterRequest request = new UserRegisterRequest();
+    Authentication auth = new Authentication();
+    auth.setId("1");
+    auth.setApiKey(token);
+    request.setAuthentication(auth);
+    User user = new User();
+    user.setEmail("glytoucan@gmail.com");
+    user.setEmailVerified("true");
+    user.setExternalId("1");
+    user.setGivenName("Administrator");
+    user.setFamilyName("Toucan");
+    request.setUser(user);
+
+    UserRegisterResponse result = userClient.register(request);
+
+    assertNotNull(result);
+    logger.debug(result);
+    logger.debug(result.getResponseMessage());
+    logger.debug(result.getResponseMessage().getTime());
+    Assert.assertEquals("0", result.getResponseMessage().getErrorCode());
+    Assert.assertNotNull(result.getUser());
+    Assert.assertEquals(user.getEmail(), result.getUser().getEmail());
+    Assert.assertEquals(user.getGivenName(), result.getUser().getGivenName());
+    Assert.assertEquals(user.getExternalId(), result.getUser().getExternalId());
+    Assert.assertEquals(user.getEmailVerified(), result.getUser().getEmailVerified());
+  }
 }

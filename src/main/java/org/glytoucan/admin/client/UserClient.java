@@ -4,6 +4,7 @@ import java.util.Date;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.glytoucan.admin.model.ErrorCode;
 import org.glytoucan.admin.model.ResponseMessage;
 import org.glytoucan.admin.model.User;
 import org.glytoucan.admin.model.UserDetailsRequest;
@@ -14,6 +15,8 @@ import org.glytoucan.admin.model.UserKeyCheckRequest;
 import org.glytoucan.admin.model.UserKeyCheckResponse;
 import org.glytoucan.admin.model.UserKeyRequest;
 import org.glytoucan.admin.model.UserKeyResponse;
+import org.glytoucan.admin.model.UserRegisterRequest;
+import org.glytoucan.admin.model.UserRegisterResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
@@ -57,5 +60,13 @@ public class UserClient extends WebServiceGatewaySupport {
     Assert.notNull(request.getPrimaryId());
 
     return (UserGenerateKeyResponse) getWebServiceTemplate().marshalSendAndReceive(request);
+  }
+  
+  public UserRegisterResponse register(UserRegisterRequest request) {
+    Assert.notNull(request);
+    Assert.notNull(request.getAuthentication());
+    Assert.notNull(request.getUser());
+
+    return (UserRegisterResponse) getWebServiceTemplate().marshalSendAndReceive(request);
   }
 }
