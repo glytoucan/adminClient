@@ -41,13 +41,14 @@ public class UserClientTest {
   @Autowired
   UserClient userClient;
 
+  String adminEmail = "glytoucan@gmail.com";
   String token = "JDUkMjAxNjA5MDUwOTM5MjMkVWZzaHNyRVFkMVl4Umx0MjJiczVyZFZVNDQ5bUJBVTBoQTdaeGpiUkRpMw==";
 
   @Test
   public void testGetKey() {
     UserKeyRequest request = new UserKeyRequest();
     Authentication auth = new Authentication();
-    auth.setId("1");
+    auth.setId(adminEmail);
     auth.setApiKey(token);
     request.setAuthentication(auth);
     request.setPrimaryId("glytoucan@gmail.com");
@@ -64,7 +65,7 @@ public class UserClientTest {
   public void testUserDetailsRequest() {
     UserDetailsRequest request = new UserDetailsRequest();
     Authentication auth = new Authentication();
-    auth.setId("1");
+    auth.setId(adminEmail);
     auth.setApiKey(token);
     request.setAuthentication(auth);
     request.setPrimaryId("glytoucan@gmail.com");
@@ -84,7 +85,7 @@ public class UserClientTest {
   public void testUserKeyCheckRequest() {
     UserKeyCheckRequest request = new UserKeyCheckRequest();
     Authentication auth = new Authentication();
-    auth.setId("1");
+    auth.setId(adminEmail);
     auth.setApiKey(token);
     request.setAuthentication(auth);
     request.setContributorId("1");
@@ -103,7 +104,7 @@ public class UserClientTest {
   public void testGenerateHash() {
     UserGenerateKeyRequest request = new UserGenerateKeyRequest();
     Authentication auth = new Authentication();
-    auth.setId("1");
+    auth.setId(adminEmail);
     auth.setApiKey(token);
     request.setAuthentication(auth);
     request.setPrimaryId("glytoucan@gmail.com");
@@ -122,7 +123,7 @@ public class UserClientTest {
   public void testRegisterUser() {
     UserRegisterRequest request = new UserRegisterRequest();
     Authentication auth = new Authentication();
-    auth.setId("1");
+    auth.setId(adminEmail);
     auth.setApiKey(token);
     request.setAuthentication(auth);
     User user = new User();
