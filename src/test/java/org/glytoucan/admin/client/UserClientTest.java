@@ -78,7 +78,7 @@ public class UserClientTest {
     Assert.assertNotNull(result.getUser());
     Assert.assertEquals("glytoucan@gmail.com", result.getUser().getEmail());
     Assert.assertEquals("1", result.getUser().getExternalId());
-    Assert.assertEquals("Toucan", result.getUser().getFamilyName());
+    Assert.assertEquals("", result.getUser().getFamilyName());
   }
 
   @Test
@@ -130,8 +130,8 @@ public class UserClientTest {
     user.setEmail("glytoucan@gmail.com");
     user.setEmailVerified("true");
     user.setExternalId("1");
-    user.setGivenName("Administrator");
-    user.setFamilyName("Toucan");
+    user.setGivenName("");
+    user.setFamilyName("");
     request.setUser(user);
 
     UserRegisterResponse result = userClient.register(request);
