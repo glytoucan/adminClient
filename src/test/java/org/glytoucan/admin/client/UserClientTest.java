@@ -77,7 +77,7 @@ public class UserClientTest {
     Assert.assertEquals("0", result.getResponseMessage().getErrorCode());
     Assert.assertNotNull(result.getUser());
     Assert.assertEquals("glytoucan@gmail.com", result.getUser().getEmail());
-    Assert.assertEquals("1", result.getUser().getExternalId());
+    Assert.assertEquals("815e7cbca52763e5c3fbb5a4dccc176479a50e2367f920843c4c35dca112e33d", result.getUser().getExternalId());
     Assert.assertEquals("", result.getUser().getFamilyName());
   }
 
@@ -88,7 +88,7 @@ public class UserClientTest {
     auth.setId(adminEmail);
     auth.setApiKey(token);
     request.setAuthentication(auth);
-    request.setContributorId("1");
+    request.setContributorId("815e7cbca52763e5c3fbb5a4dccc176479a50e2367f920843c4c35dca112e33d");
     request.setApiKey(token);
     UserKeyCheckResponse result = userClient.userKeyCheckRequest(request);
 
@@ -129,7 +129,7 @@ public class UserClientTest {
     User user = new User();
     user.setEmail("glytoucan@gmail.com");
     user.setEmailVerified("true");
-    user.setExternalId("1");
+    user.setExternalId("815e7cbca52763e5c3fbb5a4dccc176479a50e2367f920843c4c35dca112e33d");
     user.setGivenName("");
     user.setFamilyName("");
     request.setUser(user);
