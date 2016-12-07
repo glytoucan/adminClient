@@ -41,8 +41,8 @@ public class UserClientTest {
   @Autowired
   UserClient userClient;
 
-  String adminEmail = "glytoucan@gmail.com";
-  String token = "JDUkMjAxNjA5MDUwOTM5MjMkVWZzaHNyRVFkMVl4Umx0MjJiczVyZFZVNDQ5bUJBVTBoQTdaeGpiUkRpMw==";
+  String adminEmail = "815e7cbca52763e5c3fbb5a4dccc176479a50e2367f920843c4c35dca112e33d";
+  String token = "b83f8b8040a584579ab9bf784ef6275fe47b5694b1adeb82e076289bf17c2632";
 
   @Test
   public void testGetKey() {

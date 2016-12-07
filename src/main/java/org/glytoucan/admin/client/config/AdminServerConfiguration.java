@@ -9,7 +9,8 @@ import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 @Configuration
 public class AdminServerConfiguration {
 //  http://172.20.0.1:8031/ws/model.wsdl
-  @Value("${admin.uri:http://test.api.glytoucan.org/admin/ws}")
+//  @Value("${admin.uri:http://test.api.glytoucan.org/admin/ws}")
+  @Value("${admin.uri:http://test.admin.glytoucan.org/ws}")
   String adminUri;
   
   @Bean
