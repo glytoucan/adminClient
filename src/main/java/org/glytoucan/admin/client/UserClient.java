@@ -15,6 +15,7 @@ import org.glytoucan.admin.model.UserKeyCheckRequest;
 import org.glytoucan.admin.model.UserKeyCheckResponse;
 import org.glytoucan.admin.model.UserKeyRequest;
 import org.glytoucan.admin.model.UserKeyResponse;
+import org.glytoucan.admin.model.UserRegisterCoreRequest;
 import org.glytoucan.admin.model.UserRegisterRequest;
 import org.glytoucan.admin.model.UserRegisterResponse;
 import org.springframework.stereotype.Component;
@@ -34,39 +35,47 @@ public class UserClient extends WebServiceGatewaySupport {
 		return (UserKeyResponse) getWebServiceTemplate().marshalSendAndReceive(req);
 	}
 
-  public UserDetailsResponse userDetailsRequest(UserDetailsRequest request) {
-    logger.debug("client accessiong default URI:>" + getDefaultUri() + "<");
-    Assert.notNull(request);
-    Assert.notNull(request.getAuthentication());
-    Assert.notNull(request.getPrimaryId());
-    return (UserDetailsResponse) getWebServiceTemplate().marshalSendAndReceive(request);
-  }
- 
-  public UserKeyCheckResponse userKeyCheckRequest(UserKeyCheckRequest request) {
-    logger.debug("client accessiong default URI:>" + getDefaultUri() + "<");
-    Assert.notNull(request);
-    Assert.notNull(request.getAuthentication());
-    Assert.notNull(request.getAuthentication().getId());
-    Assert.notNull(request.getAuthentication().getApiKey());
-    Assert.notNull(request.getContributorId());
-    Assert.notNull(request.getApiKey());
+	public UserDetailsResponse userDetailsRequest(UserDetailsRequest request) {
+		logger.debug("client accessiong default URI:>" + getDefaultUri() + "<");
+		Assert.notNull(request);
+		Assert.notNull(request.getAuthentication());
+		Assert.notNull(request.getPrimaryId());
+		return (UserDetailsResponse) getWebServiceTemplate().marshalSendAndReceive(request);
+	}
 
-    return (UserKeyCheckResponse) getWebServiceTemplate().marshalSendAndReceive(request);
-  }
+	public UserKeyCheckResponse userKeyCheckRequest(UserKeyCheckRequest request) {
+		logger.debug("client accessiong default URI:>" + getDefaultUri() + "<");
+		Assert.notNull(request);
+		Assert.notNull(request.getAuthentication());
+		Assert.notNull(request.getAuthentication().getId());
+		Assert.notNull(request.getAuthentication().getApiKey());
+		Assert.notNull(request.getContributorId());
+		Assert.notNull(request.getApiKey());
 
-  public UserGenerateKeyResponse generateKey(UserGenerateKeyRequest request) {
-    Assert.notNull(request);
-    Assert.notNull(request.getAuthentication());
-    Assert.notNull(request.getPrimaryId());
+		return (UserKeyCheckResponse) getWebServiceTemplate().marshalSendAndReceive(request);
+	}
 
-    return (UserGenerateKeyResponse) getWebServiceTemplate().marshalSendAndReceive(request);
-  }
-  
-  public UserRegisterResponse register(UserRegisterRequest request) {
-    Assert.notNull(request);
-    Assert.notNull(request.getAuthentication());
-    Assert.notNull(request.getUser());
+	public UserGenerateKeyResponse generateKey(UserGenerateKeyRequest request) {
+		Assert.notNull(request);
+		Assert.notNull(request.getAuthentication());
+		Assert.notNull(request.getPrimaryId());
 
-    return (UserRegisterResponse) getWebServiceTemplate().marshalSendAndReceive(request);
-  }
+		return (UserGenerateKeyResponse) getWebServiceTemplate().marshalSendAndReceive(request);
+	}
+
+	public UserRegisterResponse register(UserRegisterRequest request) {
+		Assert.notNull(request);
+		Assert.notNull(request.getAuthentication());
+		Assert.notNull(request.getUser());
+
+		return (UserRegisterResponse) getWebServiceTemplate().marshalSendAndReceive(request);
+	}
+
+	public UserRegisterResponse registerCore(UserRegisterCoreRequest request) {
+		Assert.notNull(request);
+		Assert.notNull(request.getAuthentication());
+		Assert.notNull(request.getUser());
+
+		return (UserRegisterResponse) getWebServiceTemplate().marshalSendAndReceive(request);
+	}
 }

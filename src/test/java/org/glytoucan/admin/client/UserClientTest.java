@@ -118,6 +118,24 @@ public class UserClientTest {
     Assert.assertEquals("0", result.getResponseMessage().getErrorCode());
     Assert.assertNotNull(result.getKey());
   }
+  
+  public void testGenerateHash2() {
+	    UserGenerateKeyRequest request = new UserGenerateKeyRequest();
+	    Authentication auth = new Authentication();
+	    auth.setId(adminEmail);
+	    auth.setApiKey(token);
+	    request.setAuthentication(auth);
+	    request.setPrimaryId("glycodm@gmail.com");
+
+	    UserGenerateKeyResponse result = userClient.generateKey(request);
+
+	    assertNotNull(result);
+	    logger.debug(result);
+	    logger.debug(result.getResponseMessage());
+	    logger.debug(result.getResponseMessage().getTime());
+	    Assert.assertEquals("0", result.getResponseMessage().getErrorCode());
+	    Assert.assertNotNull(result.getKey());
+	  }
 
   @Test
   public void testRegisterUser() {
